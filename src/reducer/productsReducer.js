@@ -93,6 +93,35 @@ const initialState = {
 };
 
 export const productsReducer = (state = initialState, action) => {
+	const removeProductFromCart = (id) => {
+		const cart = state.cart;
+
+		const tempCart = cart.filter((product) => product.id !== id);
+
+		return {
+			...state,
+			cart: Object.freeze([...tempCart]),
+		};
+	};
+
+	const updateProductInCart = (data) => {
+		const { value, id } = data;
+		const cart = state.cart;
+
+		const productInCart =
+			cart?.length > 0 ? cart.find((product) => product.id === id) : null;
+
+		if (productInCart) {
+			const index = cart.indexOf(productInCart);
+			cart[index].counter = value;
+		}
+
+		return {
+			...state,
+			cart: Object.freeze([...cart]),
+		};
+	};
+
 	switch (action.type) {
 		case productsConstants.ADD_TO_CART:
 			const { value, id } = action.payload;
@@ -112,7 +141,19 @@ export const productsReducer = (state = initialState, action) => {
 
 			return {
 				...state,
-				cart: Object.freeze(tempCart),
+				cart: Object.freeze([...tempCart]),
+			};
+
+		case productsConstants.REMOVE_FROM_CART:
+			return removeProductFromCart(action.payload.id);
+
+		case productsConstants.UPDATE_PRODUCT_IN_CART:
+			return updateProductInCart(action.payload);
+
+		case productsConstants.CLEAR_CART:
+			return {
+				...state,
+				cart: [],
 			};
 
 		default:

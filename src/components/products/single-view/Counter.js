@@ -13,6 +13,7 @@ const Counter = ({ counter, id, addToCart }) => {
 
 	const addProductToCart = () => {
 		addToCart({ value: tempCounter, id });
+		setTempCounter(1);
 	};
 
 	return (

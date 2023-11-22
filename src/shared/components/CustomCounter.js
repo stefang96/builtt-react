@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomCounter = ({ value, setTempCounter }) => {
+const CustomCounter = ({ wrapperClass = "", value, setTempCounter }) => {
 	const increment = (e) => {
 		e.stopPropagation();
 		setTempCounter(value + 1);
@@ -14,7 +14,9 @@ const CustomCounter = ({ value, setTempCounter }) => {
 
 	return (
 		<div>
-			<div className="relative flex items-center max-w-[7rem]  max-h-[5rem] bg-white rounded-full py-2 px-4">
+			<div
+				className={`relative flex items-center max-w-[7rem]  max-h-[5rem] bg-white rounded-3xl py-2 px-4 ${wrapperClass}`}
+			>
 				<button type="button" onClick={decrement}>
 					<svg
 						className="w-3.5 h-3.5 "

@@ -46,3 +46,7 @@
     height: 21px;
     max-height: 21px;
 }
+
+.border--middle-gray {
+    border-color: #B9B9B9;
+}
