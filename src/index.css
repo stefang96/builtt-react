@@ -12,8 +12,6 @@
     padding-right: 70px;
     align-items: center;
     justify-content: space-between;
-
-     
 }
 
 .header-counter {
@@ -29,20 +27,18 @@
 
 .product-card--image:hover > .hide {
     display: block;
-    
 }
 
 .icon-fill--white svg * {
-    fill: #fff;
-        
+    fill: #fff;  
 }
 
-.icon-w--21p svg{
+.icon-w--21p sv g{
   width: 21px;
   max-width: 21px;
     
 }
-.icon-h--21p svg{
+.icon-h--21p svg {
     height: 21px;
     max-height: 21px;
 }

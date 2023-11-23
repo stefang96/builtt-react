@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Header from "../layout/Header";
 
-const PrivateRoute = ({ isAllowed, redirectTo = "/", children }) => {
+const PrivateRoute = ({ isAllowed, redirectTo = "/login", children }) => {
 	if (!isAllowed) {
 		return <Navigate to={redirectTo} />;
 	}

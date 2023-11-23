@@ -4,18 +4,17 @@ import PrivateRoute from "./components/route/PrivateRoute";
 import Cart from "./components/cart/Cart";
 import Products from "./components/products/Products";
 import PublicRoute from "./components/route/PublicRoute";
+import { connect } from "react-redux";
 
-function App() {
-	const user = "nest"; // localStorage.getItem("user");
-
+function App({ isLogged }) {
 	return (
-		<div className="App">
+		<div>
 			<BrowserRouter>
 				<Routes>
 					<Route
 						path="/"
 						element={
-							<PublicRoute isAllowed={user} redirectTo="/products">
+							<PublicRoute isAllowed={isLogged} redirectTo="/products">
 								<Login />
 							</PublicRoute>
 						}
@@ -23,7 +22,7 @@ function App() {
 					<Route
 						path="/login"
 						element={
-							<PublicRoute isAllowed={user} redirectTo="/products">
+							<PublicRoute isAllowed={isLogged} redirectTo="/products">
 								<Login />
 							</PublicRoute>
 						}
@@ -33,7 +32,7 @@ function App() {
 						exact
 						path="/products"
 						element={
-							<PrivateRoute isAllowed={!!user} redirectTo="/">
+							<PrivateRoute isAllowed={!!isLogged} redirectTo="/">
 								<Products />
 							</PrivateRoute>
 						}
@@ -42,7 +41,7 @@ function App() {
 						exact
 						path="/cart"
 						element={
-							<PrivateRoute isAllowed={!!user} redirectTo="/">
+							<PrivateRoute isAllowed={!!isLogged} redirectTo="/">
 								<Cart />
 							</PrivateRoute>
 						}
@@ -53,4 +52,10 @@ function App() {
 	);
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		isLogged: localStorage.getItem("isLogged") || state.user.isLogged,
+	};
+};
+
+export default connect(mapStateToProps, {})(App);

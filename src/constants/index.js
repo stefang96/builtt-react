@@ -4,3 +4,7 @@ export const productsConstants = {
 	UPDATE_PRODUCT_IN_CART: "UPDATE_PRODUCT_IN_CART",
 	CLEAR_CART: "CLEAR_CART",
 };
+
+export const userConstants = {
+	LOGIN: "LOGIN",
+};
