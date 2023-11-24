@@ -1,8 +1,8 @@
 import { userConstants } from "../constants";
 
 const initialState = {
-	email: "stefan@gmail.com",
-	password: "stefan123",
+	email: "stefangrujicic@gmail.com",
+	password: "p@$$word",
 	isLogged: false,
 };
 

@@ -1,13 +1,22 @@
 # Builtt react application
 
-## Available Scripts
+## Get Started
 
-In the project directory, you can run:
+To set up the app execute the following commands.
 
-### `npm start`
+```bash
+git clone https://github.com/stefang96/builtt-react.git
+cd builtt-react
+npm install
+```
+
+##### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Credentials
+
+#### `email: stefangrujicic@gmail.com`
+
+#### `password: p@$$word`
