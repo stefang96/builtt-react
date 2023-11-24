@@ -1,6 +1,14 @@
 import React from "react";
 
-const CustomCounter = ({ wrapperClass = "", value, setTempCounter }) => {
+/**
+ * Custom Counter field
+ *
+ * @param {string} wrapperClasses - custom classes
+ * @param {number} value - value of the counter
+ * @param {function} setTempCounter - function to set the value of the counter
+ * @returns
+ */
+const CustomCounter = ({ wrapperClasses = "", value, setTempCounter }) => {
 	const increment = (e) => {
 		e.stopPropagation();
 		setTempCounter(value + 1);
@@ -15,7 +23,7 @@ const CustomCounter = ({ wrapperClass = "", value, setTempCounter }) => {
 	return (
 		<div>
 			<div
-				className={`relative flex items-center max-w-[7rem]  max-h-[5rem] bg-white rounded-3xl py-2 px-4 ${wrapperClass}`}
+				className={`relative flex items-center max-w-[7rem]  max-h-[5rem] bg-white rounded-3xl py-2 px-4 ${wrapperClasses}`}
 			>
 				<button type="button" onClick={decrement}>
 					<svg

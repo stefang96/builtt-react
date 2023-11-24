@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import CartItem from "./CartItem";
 
 const CartInformation = ({ cart }) => {
-	console.log(cart);
-
 	if (cart.length === 0) {
 		return <div className="text-center text-2xl">Korpa je prazna</div>;
 	}

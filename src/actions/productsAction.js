@@ -1,5 +1,10 @@
 import { productsConstants } from "../constants";
 
+/**
+ * Add product to cart
+ * @param {string} value - value of the product
+ * @param {string} id - id of the product
+ */
 export const addToCart = ({ value, id }) => {
 	return (dispatch) => {
 		dispatch({
@@ -9,6 +14,10 @@ export const addToCart = ({ value, id }) => {
 	};
 };
 
+/**
+ * Remove product from cart
+ * @param {number} id - id of the product
+ */
 export const removeProductFromCart = (id) => {
 	return (dispatch) => {
 		dispatch({
@@ -18,6 +27,11 @@ export const removeProductFromCart = (id) => {
 	};
 };
 
+/**
+ * Update product in cart
+ * @param {string} value - value of the product
+ * @param {string} id - id of the product
+ */
 export const updateProductInCart = ({ value, id }) => {
 	return (dispatch) => {
 		dispatch({
@@ -27,6 +41,9 @@ export const updateProductInCart = ({ value, id }) => {
 	};
 };
 
+/**
+ * Clear cart state
+ */
 export const clearCart = () => {
 	return (dispatch) => {
 		dispatch({

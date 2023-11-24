@@ -1,6 +1,11 @@
 import React from "react";
-import Counter from "./Counter";
+import ProductCounter from "./ProductCounter";
 
+/**
+ * Render single product
+ * @param {object} product - object with product data
+ * @returns
+ */
 const Product = ({ product }) => {
 	return (
 		<div className="flex flex-col">
@@ -10,7 +15,7 @@ const Product = ({ product }) => {
 					alt={product.title}
 				/>
 				<div className="hide absolute left-2 bottom-2">
-					<Counter counter={product.counter} id={product.id} />
+					<ProductCounter counter={product.counter} id={product.id} />
 				</div>
 			</div>
 

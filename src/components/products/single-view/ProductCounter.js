@@ -4,7 +4,7 @@ import { CartIcon } from "../../../shared/icons/CartIcon";
 import { addToCart } from "../../../actions/productsAction";
 import { connect } from "react-redux";
 
-const Counter = ({ counter, id, addToCart }) => {
+const ProductCounter = ({ counter, id, addToCart }) => {
 	const [tempCounter, setTempCounter] = React.useState(counter);
 
 	const handleCounter = useCallback((value) => {
@@ -29,4 +29,4 @@ const Counter = ({ counter, id, addToCart }) => {
 	);
 };
 
-export default connect(null, { addToCart })(Counter);
+export default connect(null, { addToCart })(ProductCounter);

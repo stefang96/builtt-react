@@ -2,7 +2,7 @@ import React from "react";
 
 export const CartIcon = (props) => {
 	return (
-		<div className={`icon ${props.iconClass ? props.iconClass : ""}`}>
+		<div className={`${props.iconClass ? props.iconClass : ""}`}>
 			<svg
 				width="23"
 				height="23"

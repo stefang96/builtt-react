@@ -29,7 +29,7 @@ const CartCounter = ({
 	return (
 		<div className="flex">
 			<CustomCounter
-				wrapperClass="border border-gray-950"
+				wrapperClasses="border border-gray-950"
 				value={tempCounter}
 				setTempCounter={handleCounter}
 			/>

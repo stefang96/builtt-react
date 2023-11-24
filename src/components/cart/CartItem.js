@@ -1,6 +1,9 @@
 import React from "react";
 import CartCounter from "./CartCounter";
 
+/**
+ * Single cart item component
+ */
 const CartItem = ({ product }) => {
 	return (
 		<div className="flex">
@@ -18,7 +21,6 @@ const CartItem = ({ product }) => {
 						<sup>RSD</sup> po komadu
 					</div>
 				</div>
-
 				<CartCounter counter={+product.counter} id={product.id} />
 			</div>
 			<div className="ml-auto">

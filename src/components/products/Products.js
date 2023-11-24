@@ -2,6 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import Product from "./single-view/Product";
 
+/**
+ * Render all products
+ * @param {object} props - object with products
+ * @returns
+ */
 const Products = (props) => {
 	const { products } = props;
 

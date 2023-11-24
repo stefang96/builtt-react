@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 const CartHeader = ({ cart }) => {
 	const returnTotalCartItems = useMemo(() => {
-		console.log({ cart });
 		return cart.length;
 	}, [cart]);
 

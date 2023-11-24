@@ -93,6 +93,12 @@ const initialState = {
 };
 
 export const productsReducer = (state = initialState, action) => {
+	/**
+	 * Removes product from cart
+	 *
+	 * @param {number} id - unique id of product
+	 * @returns
+	 */
 	const removeProductFromCart = (id) => {
 		const cart = state.cart;
 
@@ -104,6 +110,12 @@ export const productsReducer = (state = initialState, action) => {
 		};
 	};
 
+	/**
+	 * Updates product in cart
+	 *
+	 * @param {object} data - object with product id and value
+	 * @returns
+	 */
 	const updateProductInCart = (data) => {
 		const { value, id } = data;
 		const cart = state.cart;
@@ -122,27 +134,37 @@ export const productsReducer = (state = initialState, action) => {
 		};
 	};
 
+	/**
+	 * Adds product to cart
+	 *
+	 * @param {object} data - object with product id and value
+	 * @returns
+	 */
+	const addProductToCart = (data) => {
+		const { value, id } = data;
+
+		const product = state.list.find((product) => product.id === id);
+		const cart = [...state.cart];
+
+		const productInCart =
+			cart?.length > 0 ? cart.find((product) => product.id === id) : null;
+
+		if (productInCart) {
+			const index = cart.indexOf(productInCart);
+			cart[index].counter += value;
+		} else {
+			cart.push({ ...product, counter: value });
+		}
+
+		return {
+			...state,
+			cart: Object.freeze([...cart]),
+		};
+	};
+
 	switch (action.type) {
 		case productsConstants.ADD_TO_CART:
-			const { value, id } = action.payload;
-
-			const product = state.list.find((product) => product.id === id);
-			const cart = state.cart;
-			let tempCart = [...cart];
-			const productInCart =
-				cart?.length > 0 ? cart.find((product) => product.id === id) : null;
-
-			if (productInCart) {
-				const index = tempCart.indexOf(productInCart);
-				tempCart[index].counter += value;
-			} else {
-				tempCart.push({ ...product, counter: value });
-			}
-
-			return {
-				...state,
-				cart: Object.freeze([...tempCart]),
-			};
+			return addProductToCart(action.payload);
 
 		case productsConstants.REMOVE_FROM_CART:
 			return removeProductFromCart(action.payload.id);

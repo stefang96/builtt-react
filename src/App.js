@@ -32,7 +32,7 @@ function App({ isLogged }) {
 						exact
 						path="/products"
 						element={
-							<PrivateRoute isAllowed={!!isLogged} redirectTo="/">
+							<PrivateRoute isAllowed={isLogged} redirectTo="/">
 								<Products />
 							</PrivateRoute>
 						}
@@ -41,7 +41,7 @@ function App({ isLogged }) {
 						exact
 						path="/cart"
 						element={
-							<PrivateRoute isAllowed={!!isLogged} redirectTo="/">
+							<PrivateRoute isAllowed={isLogged} redirectTo="/">
 								<Cart />
 							</PrivateRoute>
 						}
